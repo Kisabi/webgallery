@@ -1,0 +1,9 @@
+$kind: http-request
+name: http://localhost:3000/api/images
+url: http://localhost:3000/api/images
+method: GET
+auth:
+  type: bearer
+  credentials:
+    token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOjEsImVtYWlsIjoidGVzdEBnbWFpbC5jb20iLCJpYXQiOjE3Nzk0ODc2MjMsImV4cCI6MTc4MDA5MjQyM30.jI9q_9eOVZZVbbS4ukinEbQujBhMbCNt2j2q5evTRqU
+order: 4427475541087603
