@@ -1,0 +1,9 @@
+# Залежності
+node_modules/
+
+# Змінні середовища
+.env
+
+# Завантажені файли 
+uploads/*
+!uploads/.gitkeep

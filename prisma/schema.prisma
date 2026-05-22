@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  username     String    @unique
+  passwordHash String
+  createdAt    DateTime  @default(now())
+
+  images      Image[]
+  collections Collection[]
+}
+
+model Image {
+  id           Int      @id @default(autoincrement())
+  userId       Int
+  filename     String   @unique
+  originalName String
+  mimeType     String
+  size         Int
+  uploadedAt   DateTime @default(now())
+
+  user        User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  collections ImageCollection[]
+}
+
+model Collection {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  name      String
+  createdAt DateTime @default(now())
+
+  user   User              @relation(fields: [userId], references: [id], onDelete: Cascade)
+  images ImageCollection[]
+}
+
+model ImageCollection {
+  imageId      Int
+  collectionId Int
+
+  image      Image      @relation(fields: [imageId], references: [id], onDelete: Cascade)
+  collection Collection @relation(fields: [collectionId], references: [id], onDelete: Cascade)
+
+  @@id([imageId, collectionId])
+}
