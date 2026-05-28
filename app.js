@@ -30,7 +30,4 @@ app.use('/api/collections', collectionRoutes);
 
 // ── Глобальний обробник помилок  ───────────
 app.use(errorHandler);
-
-app.listen(PORT, () => {
-  console.log(`[INFO] Server running on http://localhost:${PORT}`);
-});
+module.exports = app;
