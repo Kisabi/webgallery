@@ -2,10 +2,10 @@
   "name": "practice_varchak",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "dev": "nodemon app.js",
+    "dev": "nodemon src/server.js",
     "test": "jest",
     "test:coverage": "jest --coverage"
   },

@@ -6,10 +6,10 @@ const cors    = require('cors');
 const morgan  = require('morgan');
 const path    = require('path');
 
-const authRoutes       = require('./src/routes/auth');
-const imageRoutes      = require('./src/routes/images');
-const collectionRoutes = require('./src/routes/collections');
-const errorHandler     = require('./src/middleware/errorHandler');
+const authRoutes       = require('./routes/auth');
+const imageRoutes      = require('./routes/images');
+const collectionRoutes = require('./routes/collections');
+const errorHandler     = require('./middleware/errorHandler');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -21,7 +21,7 @@ app.use(express.json());                  // парсинг JSON-тіла зап
 app.use(express.urlencoded({ extended: true })); // парсинг URL-параметрів
 
 // Статичний доступ до завантажених зображень
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+app.use('/uploads', express.static(path.join(__dirname, '..//uploads')));
 
 // ── Маршрути ────────────────────────────────────────────────
 app.use('/api/auth',        authRoutes);
